@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import { useContext } from "react";
 import AuthContext from "../AuthContext";
-
+import API_URL from "../../config/config";
 
 function LoginCard(){
     const[email,setEmail] = useState("")
@@ -21,7 +21,7 @@ function LoginCard(){
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:3000/api/org/admin/login",{email,password:pass});
+            const response = await axios.post(`${API_URL}/api/org/admin/login`,{email,password:pass});
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("Admin",response.data.adminName)
             setAdmin({name:localStorage.getItem("Admin"),isAuth:true})

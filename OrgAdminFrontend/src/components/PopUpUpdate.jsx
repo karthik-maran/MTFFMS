@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState,useEffect } from "react";
-
+import API_URL from "../../config/config";
 function PopupWindow({selectedFeature, handleClosePopup,onUpdateSuccess}) {
 
 const[featureName,setFeatureName] = useState("");
@@ -16,7 +16,7 @@ async function handleSubmit(e,id){
     e.preventDefault();
     try {
         const token = localStorage.getItem("token");
-        const response = await axios.put(`http://localhost:3000/api/org/admin/update/feature/${id}`,{
+        const response = await axios.put(`${API_URL}/api/org/admin/update/feature/${id}`,{
             featureName:featureName,
             description:desc
         },{

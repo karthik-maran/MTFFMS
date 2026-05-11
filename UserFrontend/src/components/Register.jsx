@@ -1,6 +1,6 @@
 import { useState } from "react"
 import {useNavigate} from 'react-router-dom'
-
+import API_URL from "../../config/config";
 import axios from "axios"
 
 function Register(){
@@ -18,7 +18,7 @@ function Register(){
                 alert('confirm password should match the password')
                 return;
             }
-            const response = await axios.post('http://localhost:3000/api/org/signup',{
+            const response = await axios.post(`${API_URL}/api/org/signup`,{
                 userName:username,
                 userEmail:email,
                 password:password

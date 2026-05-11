@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
-
+import API_URL from "../../config/config";
 
 function Features(){
    const[featureData, setFeatureData] = useState([]);
@@ -10,7 +10,7 @@ function Features(){
       const loadFeature = async()=>{
         try { 
             const token = localStorage.getItem("token");
-            const response = await axios.get('http://localhost:3000/api/org/admin/featureflags',{
+            const response = await axios.get(`${API_URL}/api/org/admin/featureflags`,{
                 headers:{
                     Authorization:`Bearer ${token}`
                 }
@@ -29,7 +29,7 @@ function Features(){
     async function handleEnable(key,currentValue){
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.put(`http://localhost:3000/api/org/admin/feature/toggle/${key}`,{
+            const response = await axios.put(`${API_URL}/api/org/admin/feature/toggle/${key}`,{
                 enabled:!currentValue
             },{
                 headers:{

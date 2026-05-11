@@ -3,6 +3,7 @@ import React from "react";
 import { } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../../config/config";
 
 
 
@@ -22,7 +23,7 @@ function SignUp(){
         e.preventDefault();
        
         try {
-            const response = await axios.post('http://localhost:3000/api/org/admin/register',{name:username,email:email,password:password,organizationDomain:orgDomain,orgId:orgId,inviteCode:inviteCode})
+            const response = await axios.post(`${API_URL}/api/org/admin/register`,{name:username,email:email,password:password,organizationDomain:orgDomain,orgId:orgId,inviteCode:inviteCode})
             alert(response.data.message)
 
             localStorage.setItem("token",response.data.token);

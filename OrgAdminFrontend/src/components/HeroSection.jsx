@@ -5,6 +5,7 @@ import axios from "axios"
 import FeatureCreation from "./FeatureCreationForm";
 import { useContext } from "react";
 import AuthContext from "../AuthContext";
+import API_URL from "../../config/config";
 
 function HeroSection(){
     
@@ -20,7 +21,7 @@ function HeroSection(){
         const loadName = async ()=>{
             try {
                 const token  = localStorage.getItem("token");
-                const response = await axios.get('http://localhost:3000/api/org/admin/org/name',{
+                const response = await axios.get(`${API_URL}http://localhost:3000/api/org/admin/org/name`,{
                     headers:{
                         Authorization:`Bearer ${token}`
                     }

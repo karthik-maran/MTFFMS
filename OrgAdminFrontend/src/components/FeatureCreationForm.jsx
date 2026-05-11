@@ -1,4 +1,5 @@
 import { useState } from "react";
+import API_URL from "../../config/config";
 
 import { useFormState } from "react-dom";
 import axios from "axios"
@@ -13,7 +14,7 @@ function FeatureCreation({setToggleForm}){
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post('http://localhost:3000/api/org/admin/feature/create',{
+            const response = await axios.post(`${API_URL}/api/org/admin/feature/create`,{
                 featureName,
                 description:desc,
                 enabled:enable

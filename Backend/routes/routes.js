@@ -1,7 +1,7 @@
 const express = require("express");
 const { register, getRegister, delRegister } = require("../controllers/organizationController");
 const{ orgAdminRegister ,login,getOrgName,createFeature, getFeatureFlags,toggleFeature,updateFeatureById,getFeatureById,deleteFeatureById }=require("../controllers/orgAdminController");
-const {registerUser,userLogin,checkFeature} = require("../controllers/userController")
+const {registerUser,userLogin,checkFeature,fetchFeature} = require("../controllers/userController")
 const authMiddleware = require("../middleware/authMiddleware");
 const authUserMiddleware = require("../middleware/authUserMiddleware")
 
@@ -12,6 +12,7 @@ const router = express.Router();
 router.post('/add',register);
 router.get('/add',getRegister);
 router.delete('/delete/:orgId',delRegister);
+
 //this is admin routes
 router.post('/admin/register',orgAdminRegister);
 router.post('/admin/login',login)
@@ -27,4 +28,5 @@ router.delete("/admin/delete/feature/:featureKey",authMiddleware,deleteFeatureBy
 router.post("/signup",registerUser)
 router.post("/login",userLogin)
 router.post("/check/feature",authUserMiddleware,checkFeature)
+router.get("/get/features",authUserMiddleware,fetchFeature)
 module.exports = router;

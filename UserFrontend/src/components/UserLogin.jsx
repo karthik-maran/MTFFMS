@@ -1,20 +1,28 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
-
+import UserContext from "../../UserContext";
+import API_URL from "../../config/config";
 
 function LoginComponent(){
     const[email,setEmail] = useState("");
     const[pass,setPass] = useState("");
     const[flag,setFlag] =useState(false);
+    const {setOrganizationName} = useContext(UserContext)
+    const{setUser} =useContext(UserContext)
+    
     const navigate = useNavigate();
     async function handleSubmit(e){
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/org/login',{
+            const response = await axios.post(`${API_URL}/api/org/login`,{
                 userEmail:email,password:pass
             })
             localStorage.setItem("userToken",response.data.userToken)
+            localStorage.setItem("User",response.data.user.userName);
+            localStorage.setItem("orgName",response.data.orgName.organizationName)
+            setUser({name:response.data.user.userName,isAuth:true})
+            setOrganizationName(response.data.orgName.organizationName)
             alert('login successfull');
             navigate('/');
             
@@ -27,6 +35,7 @@ function LoginComponent(){
     function handleNav(){
         navigate('/register')
     }
+ 
     return(
         <>
           <div className="flex-col justify-center items-center p-5  shadow-md rounded-md bg-gray-200 w-100 h-fit " >

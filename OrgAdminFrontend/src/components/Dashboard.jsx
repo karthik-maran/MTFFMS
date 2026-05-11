@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react"
+import API_URL from "../../config/config";
 
 import axios from "axios"
 import PopupWindow from "./PopUpUpdate";
@@ -10,7 +11,7 @@ function Dashboard(){
       const loadFeature = async()=>{
         try { 
             const token = localStorage.getItem("token");
-            const response = await axios.get('http://localhost:3000/api/org/admin/featureflags',{
+            const response = await axios.get(`${API_URL}/api/org/admin/featureflags`,{
                 headers:{
                     Authorization:`Bearer ${token}`
                 }
@@ -31,7 +32,7 @@ function Dashboard(){
     
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get(`http://localhost:3000/api/org/admin/get/feature/${id}`,{headers:{Authorization:`Bearer ${token}`}})
+            const response = await axios.get(`${API_URL}/api/org/admin/get/feature/${id}`,{headers:{Authorization:`Bearer ${token}`}})
             setSelectedFeature(response.data.feature);
       
         } catch (error) {
@@ -42,7 +43,7 @@ function Dashboard(){
     async function handleDelete(id){
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.delete(`http://localhost:3000/api/org/admin/delete/feature/${id}`,{headers:{Authorization:`Bearer ${token}`}})
+            const response = await axios.delete(`${API_URL}/api/org/admin/delete/feature/${id}`,{headers:{Authorization:`Bearer ${token}`}})
             console.log(response);
              setAllFeatureData((prev) =>prev.filter((feature) => feature.featureKey !== id));
             alert("deleted successfully")

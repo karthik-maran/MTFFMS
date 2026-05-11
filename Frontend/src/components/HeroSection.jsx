@@ -19,7 +19,7 @@ function HeroSection(){
         <div className=" flex  justify-center items-center mt-20">
             {toggleForm?(<OrgForms setToggleForm={setToggleForm} />): ( <button className="p-4 rounded-md font-bold bg-purple-800 text-white text-lg w-fit items-center whitespace-nowrap hover:bg-purple-500" onClick={handleClick}> Add Organisation</button>)}
            </div>
-          <div>
+          <div className="mb-10">
             
             <p className="text-start p-5 text-xl font-bold">List of organizations:</p>
             <div className="mt-10">

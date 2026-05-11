@@ -2,12 +2,13 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import API_URL from "../../config/config";
 
 function OrgList(){
     const[data, setData] = useState([]);
     async function handleDelete(id){
         try {
-            const response = await axios.delete(`http://localhost:3000/api/org/delete/${id}`);
+            const response = await axios.delete(`${API_URL}/api/org/delete/${id}`);
                 setData(data.filter((org) => org.orgId !== id));
             alert(response.data.message)
 
@@ -21,9 +22,8 @@ function OrgList(){
   useEffect(()=>{
     const loadOrg = async ()=>{
         try {
-            const response = await  axios.get('http://localhost:3000/api/org/add');
+            const response = await  axios.get(`${API_URL}/api/org/add`);
             setData(response.data);
-            console.log(response.data);
         } catch (error) {
             console.error(error.message);
             alert('failed to fetch ')
