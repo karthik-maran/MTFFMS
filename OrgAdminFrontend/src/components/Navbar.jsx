@@ -6,23 +6,22 @@ import AuthContext from "../AuthContext";
 
 
 function Navbar(){
-        const[orgName,setOrgName] = useState();
    
-        const{organName,setOrganName} = useContext(AuthContext);
-        const{admin,setAdmin} = useContext(AuthContext);
-        
+        const{organName,setOrganName,admin,setAdmin} = useContext(AuthContext);
+       
       
         function handleLogout(){
             localStorage.removeItem("token");
             localStorage.removeItem("Admin");
             localStorage.removeItem("orgName");
-            alert("logout successfull")
+            console.log(localStorage.getItem("orgName"));
+
+          
             if(!localStorage.getItem('Admin' && !localStorage.getItem("token"))){
                 setAdmin({name:"",isAuth:false})
             }
-            setAdmin({name:"",isAuth:false})
             setOrganName("")
-
+            alert("logout successfull")
         
          
         }

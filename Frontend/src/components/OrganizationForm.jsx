@@ -36,7 +36,7 @@ function OrgForms({setToggleForm}){
             </div>
                <div className="flex flex-col w-full gap-2 mt-5">
                 <label className="font-bold text-lg">organizations Domain:</label>
-                <input type="text" placeholder=" organizations name" className="p-2 border-2 border-gray-400 rounded-lg p-1 hover:border-purple-300  focus:outline-purple-300" onChange={(e)=>setOrgDomain(e.target.value)}></input>
+                <input type="text" placeholder=" organizations Domain" className="p-2 border-2 border-gray-400 rounded-lg p-1 hover:border-purple-300  focus:outline-purple-300" onChange={(e)=>setOrgDomain(e.target.value)}></input>
             </div>
             <div className="flex  justify-center items-center mt-5 gap-3">
                 <button  type="submit"        className="px-2 py-1 rounded-md font-bold bg-purple-800 text-white  w-30 items-center">Submit</button>

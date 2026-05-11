@@ -6,12 +6,15 @@ import UserContext from "../../UserContext";
 
 function Navbar(){
     const{user,setUser} = useContext(UserContext)
-    const{organizationName}=useContext(UserContext)
+    const{organizationName,setOrganizationName}=useContext(UserContext)
     function handleLogout(){
        localStorage.removeItem("userToken");
        localStorage.removeItem("User")
+       localStorage.removeItem("orgName");
         setUser({name:"",isAuth:false})
+        setOrganizationName("");
         alert('logout successfully')
+
     }
     console.log(user)
 
