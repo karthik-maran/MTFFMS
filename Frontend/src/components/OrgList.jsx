@@ -70,7 +70,7 @@ function OrgList(){
                                                  <td className="border border-gray-400 p-5  text-center text-lg">{org.organizationDomain}</td>
                                                 <td className="border border-gray-400 p-5  text-center text-lg">{org.inviteCode}</td>
                                                 <td className="border border-gray-400 p-5 text-center">
-                                                    <button className="px-2 py-1 rounded-md font-bold bg-purple-800 text-white  w-30 items-center" onClick={()=>handleDelete(org.orgId)}>delete</button>
+                                                    <button className="px-2 py-1 rounded-md font-bold bg-purple-800 text-white  w-30 items-center hover:bg-purple-500" onClick={()=>handleDelete(org.orgId)}>delete</button>
                                                 </td>
                                             </tr>
                                             

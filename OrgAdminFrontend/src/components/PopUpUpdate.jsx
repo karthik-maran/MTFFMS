@@ -73,7 +73,7 @@ async function handleSubmit(e,id){
                 type="submit"
                 className="font-bold text-white bg-purple-500 rounded-md p-2 hover:bg-purple-800"
               >
-                Submit
+                Save
               </button>
 
               <button

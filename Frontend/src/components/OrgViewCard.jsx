@@ -20,12 +20,12 @@ function OrgCards(){
     
     
     return(<>
-    <div className="flex ">
-        {data.map((org)=>( <div className="flex  justify-start shadow-xl rounded-md  w-fit bg-gray-200 mx-10 hover:outline-2 hover:outline-purple-500">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-8 py-6 ">
+        {data.map((org)=>( <div className="flex  justify-start shadow-xl rounded-md  w-80 bg-gray-200 mx-10 hover:outline-2 hover:outline-purple-500">
             <div className="flex flex-col gap-3 py-5 px-5 " key={org.OrgId}>
-                <div className="flex gap-2 font"> <span className="font-bold">OrgId:</span> <h1 className="" > {org.orgId}</h1></div>
-                <div className="flex gap-2"><span className="font-bold">Org Name:</span> <h1>{org.organizationName}</h1></div>
-               <div className="flex gap-2"><span className="font-bold">Org Domain:</span> <p> {org.organizationDomain}</p></div>
+                <div className="flex gap-2 font whitespace-wrap"> <span className="font-bold">OrgId:</span> <h1 className="" > {org.orgId}</h1></div>
+                <div className="flex gap-2 whitespace-wrap"><span className="font-bold">Org Name:</span> <h1>{org.organizationName}</h1></div>
+               <div className="flex gap-2 whitespace-wrap"><span className="font-bold">Org Domain:</span> <p> {org.organizationDomain}</p></div>
             </div>
         </div> ))}
         </div>
