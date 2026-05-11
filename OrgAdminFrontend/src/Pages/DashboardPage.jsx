@@ -11,7 +11,8 @@ function DashboardPage(){
     return(
         <>
         <div>
-           <Dashboard/>
+            {admin.isAuth ? (  <Dashboard/>) :(<div className="flex justify-center h-screen items-center text-5xl font-bold"><p>login to continue...</p></div>) }
+       
            
         </div>
         </>
