@@ -9,8 +9,8 @@ function LoginCard(){
     const[flag,setFlag] = useState(true);
     const navigate = useNavigate();
 
-    const username = "admin@MTF";
-    const password = "admin123";
+    const username = "admin";
+    const password = "admin@MTS";
    
     
     function handleSubmit(e){

@@ -10,6 +10,7 @@ function LoginCard(){
     const[pass,setPass] = useState("")
     const[flag,setFlag] = useState(true);
     const{admin,setAdmin} = useContext(AuthContext);
+    const{setOrganName}= useContext(AuthContext);
     const navigate = useNavigate();
     function handleNav(){
         navigate("/admin/signup")
@@ -24,7 +25,10 @@ function LoginCard(){
             const response = await axios.post(`${API_URL}/api/org/admin/login`,{email,password:pass});
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("Admin",response.data.adminName)
+            localStorage.setItem("orgName",response.data.orgName)
             setAdmin({name:localStorage.getItem("Admin"),isAuth:true})
+            
+            setOrganName(localStorage.getItem("orgName"));
             alert('login successfull')
             navigate('/')
         } catch (error) {

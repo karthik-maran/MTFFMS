@@ -14,7 +14,7 @@ import AuthContext from './AuthContext'
 import DashboardPage from './Pages/DashboardPage'
 
 function App() {
-  const[organName,setOrganName] = useState("");
+  const[organName,setOrganName] = useState(localStorage.getItem("orgName"));
   const[admin,setAdmin]=useState({name:localStorage.getItem("Admin"),isAuth:true})
 
 

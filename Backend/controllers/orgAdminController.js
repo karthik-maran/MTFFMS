@@ -50,11 +50,14 @@ exports.login = async(req,res)=>{
             email
 
         })
+        const orgName = await organizationModel.findOne({
+            orgId:admin.orgId
+        })
         if(!admin){
             return res.status(400).json({message:" admin not found"})
         }
         const token = generateToken(admin);
-        res.status(200).json({message:"login Successfull",token,adminName: admin.name});
+        res.status(200).json({message:"login Successfull",token,adminName: admin.name,orgName:orgName.organizationName});
     } catch (error) {
         console.error(error.message);
         return res.status(400).json({message:"failed to authenticate admin"});

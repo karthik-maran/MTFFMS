@@ -15,6 +15,7 @@ function Navbar(){
         function handleLogout(){
             localStorage.removeItem("token");
             localStorage.removeItem("Admin");
+            localStorage.removeItem("orgName");
             alert("logout successfull")
             if(!localStorage.getItem('Admin' && !localStorage.getItem("token"))){
                 setAdmin({name:"",isAuth:false})

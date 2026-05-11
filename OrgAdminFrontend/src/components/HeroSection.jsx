@@ -17,24 +17,7 @@ function HeroSection(){
         e.preventDefault();
         setToggleForm(true)
     }
-    useEffect(()=>{
-        const loadName = async ()=>{
-            try {
-                const token  = localStorage.getItem("token");
-                const response = await axios.get(`${API_URL}http://localhost:3000/api/org/admin/org/name`,{
-                    headers:{
-                        Authorization:`Bearer ${token}`
-                    }
-                });
-                console.log(response.data);
-                setOrganName(response.data.organizationName);
-               
-            } catch (error) {
-                console.error(error.message);
-            }
-        }
-        loadName();
-    },[])
+
     return(
         <>
         
