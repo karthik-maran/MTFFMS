@@ -61,7 +61,7 @@ function FeatureCheck(){
                         <label className="font-bold">Feature Name</label>
                         
                         <select className="p-2 border-2 border-gray-400 rounded-lg hover:border-purple-300 focus:outline-purple-300" value={featureName} onChange={(e) => {setFeatureName(e.target.value); setFeatureId("");}} value={featureName}>
-                            <option value="">Select a Feature</option>
+                            <option>Select a Feature</option>
                             {fetchFeature.map((feature)=>(
                                 <option key={feature.featureId} value={feature.featureName}>{feature.featureName}</option>
                             ))}
