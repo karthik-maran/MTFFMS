@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { head } = require('../routes/routes');
+
 
 
 const authMiddleware = (req,res,next)=>{
