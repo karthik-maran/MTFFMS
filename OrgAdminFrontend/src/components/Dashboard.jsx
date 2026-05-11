@@ -98,8 +98,8 @@ function Dashboard(){
                                                 <td className="border border-gray-400 p-5  text-center text-lg">{feature.description}</td>
                                                 <td className="border border-gray-400 p-5 text-center">
                                                     <div className="flex gap-3">
-                                                    <button className="px-2 py-1 rounded-md font-bold bg-purple-800 text-white  w-30 items-center cursor-pointer" onClick={async()=>{await getInfo(feature.featureKey);handlePopup();}}>Update</button>
-                                                    <button className="px-2 py-1 rounded-md font-bold bg-purple-800 text-white  w-30 items-center" onClick={()=>handleDelete(feature.featureKey)} >delete</button>
+                                                    <button className="px-2 py-1 rounded-md font-bold bg-purple-800 text-white  w-30 items-center hover:bg-purple-500 cursor-pointer" onClick={async()=>{await getInfo(feature.featureKey);handlePopup();}}>Update</button>
+                                                    <button className="px-2 py-1 rounded-md font-bold bg-purple-800 text-white  w-30 items-center hover:bg-purple-500" onClick={()=>handleDelete(feature.featureKey)} >delete</button>
                                                     </div>
                                                 </td>
                                             </tr>

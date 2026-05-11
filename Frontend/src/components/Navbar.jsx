@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import {Link} from 'react-router-dom'
 import Login from "../components/Login";
+import SuperContext from "../../SuperContext";
 
 function Navbar(){
-
+    const{superAdmin,setSuperAdmin}=useContext(SuperContext);
+    function handleLogout(){
+        localStorage.removeItem("super_Admin");
+        setSuperAdmin({name:"",isAuth:false})
+        alert('logout successfully')
+    }
 
     return(
         <>
@@ -16,11 +22,12 @@ function Navbar(){
             
             <div >
                 <nav className="ml-auto">
-                <Link to="/login"className="hover:font-bold ">Login</Link>
+                {superAdmin.isAuth ? (<div className="outline-2 p-1 rounded-md hover:bg-white hover:text-purple-500 hover:outline-purple-500" onClick={handleLogout}><Link>Logout</Link></div>) :(<div className="outline-2 p-1 rounded-md hover:bg-white hover:text-purple-500 hover:outline-purple-500"> <Link to="/login">Login</Link></div>)}
+               
                 </nav>
             </div>
         </div>
-        </>
+        </>     
     )
 }
 
