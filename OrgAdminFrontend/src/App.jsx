@@ -9,13 +9,20 @@ import Navbar from './components/Navbar'
 import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
 import FeaturesPage from './Pages/FeaturesPage'
-import { useContext } from 'react'
+import { useContext,useEffect } from 'react'
 import AuthContext from './AuthContext'
 import DashboardPage from './Pages/DashboardPage'
 
 function App() {
-  const[organName,setOrganName] = useState(localStorage.getItem("orgName"));
-  const[admin,setAdmin]=useState({name:localStorage.getItem("Admin"),isAuth:true})
+  const[organName,setOrganName] = useState("");
+  const[admin,setAdmin]=useState({name:"",isAuth:false})
+  useEffect(()=>{
+      setOrganName(localStorage.getItem("orgName"))
+      setAdmin({
+        name:localStorage.getItem("Admin"),
+        isAuth:!!localStorage.getItem("token")
+      });
+  },[]);
 
 
 

@@ -13,6 +13,7 @@ function HeroSection(){
     const{organName,setOrganName}= useContext(AuthContext);
     const{admin} = useContext(AuthContext);
     console.log(admin);
+    console.log(organName);
     function handleToggle(e){
         e.preventDefault();
         setToggleForm(true)

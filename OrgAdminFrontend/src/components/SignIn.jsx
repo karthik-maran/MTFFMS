@@ -27,8 +27,8 @@ function LoginCard(){
             localStorage.setItem("Admin",response.data.adminName)
             localStorage.setItem("orgName",response.data.orgName)
             setAdmin({name:localStorage.getItem("Admin"),isAuth:true})
-            
             setOrganName(localStorage.getItem("orgName"));
+            console.log(response.data.orgName);
             alert('login successfull')
             navigate('/')
         } catch (error) {
